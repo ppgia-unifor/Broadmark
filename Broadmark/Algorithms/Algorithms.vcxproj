@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{0DFC5C1A-C809-4C7D-8594-F8D072966ECB}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Algorithms</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\ProjectProperties\Base_Properties.props" />
+    <Import Project="..\ProjectProperties\Debug_Properties.props" />
+    <Import Project="..\ProjectProperties\Dependencies_Properties.props" />
+    <Import Project="..\ProjectProperties\GPU_Properties.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\ProjectProperties\Base_Properties.props" />
+    <Import Project="..\ProjectProperties\Release_Properties.props" />
+    <Import Project="..\ProjectProperties\Dependencies_Properties.props" />
+    <Import Project="..\ProjectProperties\GPU_Properties.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Broadphase\Algorithms\GPU\Bullet3GPUAlgorithms.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\Grid\Grid.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\Tracy\Tracy_Parallel.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\KD\KD.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\KD\KD_Broadphase.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\KD\KD_Operators.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\KD\KD_Update.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\KD\KD_Validation.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\btAxisSweep3.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\btBroadphaseProxy.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\btCollisionAlgorithm.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\btDbvt.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\btDbvtBroadphase.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\btDispatcher.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\btOverlappingPairCache.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\LinearMath\btAlignedAllocator.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\LinearMath\btGeometryUtil.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\LinearMath\btQuickprof.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\LinearMath\btThreads.cpp" />
+    <ClCompile Include="Dependencies\Bullet2\LinearMath\btVector3.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3Collision\BroadPhaseCollision\b3DynamicBvh.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3Collision\BroadPhaseCollision\b3DynamicBvhBroadphase.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3Collision\BroadPhaseCollision\b3OverlappingPairCache.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3Common\b3AlignedAllocator.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3Common\b3Logging.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3Common\b3Vector3.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3Geometry\b3GeometryUtil.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\b3GpuGridBroadphase.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\b3GpuParallelLinearBvh.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\b3GpuParallelLinearBvhBroadphase.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\b3GpuSapBroadphase.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3OpenCL\Initialize\b3OpenCLUtils.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3BoundSearchCL.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3FillCL.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3LauncherCL.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3PrefixScanCL.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3PrefixScanFloat4CL.cpp" />
+    <ClCompile Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3RadixSort32CL.cpp" />
+    <ClCompile Include="Tests\SimdTest.cpp" />
+    <ClInclude Include="Broadphase\Algorithms\BaseAlgorithm.h" />
+    <ClInclude Include="Broadphase\Algorithms\BF\BF.h" />
+    <ClInclude Include="Broadphase\Algorithms\BF\BF_Base.h" />
+    <ClInclude Include="Broadphase\Algorithms\BF\BF_Parallel.h" />
+    <ClInclude Include="Broadphase\Algorithms\BF\BF_SIMD.h" />
+    <ClInclude Include="Broadphase\Algorithms\BF\BF_SIMD_Parallel.h" />
+    <ClInclude Include="Broadphase\Algorithms\DBVT\DBVT.h" />
+    <ClInclude Include="Broadphase\Algorithms\GPU\Bullet3GPUAlgorithms.h" />
+    <ClInclude Include="Broadphase\Algorithms\Grid\Grid.h" />
+    <ClInclude Include="Broadphase\Algorithms\Grid\Grid_Base.h" />
+    <ClInclude Include="Broadphase\Algorithms\Grid\Grid_ND.h" />
+    <ClInclude Include="Broadphase\Algorithms\Grid\Grid_ND_Parallel.h" />
+    <ClInclude Include="Broadphase\Algorithms\Grid\Grid_ND_SAP.h" />
+    <ClInclude Include="Broadphase\Algorithms\Grid\Grid_ND_SAP_Parallel.h" />
+    <ClInclude Include="Broadphase\Algorithms\SAP\SAP_Base.h" />
+    <ClInclude Include="Broadphase\Algorithms\SAP\SAP_Parallel.h" />
+    <ClInclude Include="Broadphase\Algorithms\SAP\SAP_SIMD.h" />
+    <ClInclude Include="Broadphase\Algorithms\SAP\SAP_SIMD_Parallel.h" />
+    <ClInclude Include="Broadphase\Algorithms\Tracy\Tracy_Parallel.h" />
+    <ClInclude Include="Broadphase\Algorithms\KD\KD.h" />
+    <ClInclude Include="Broadphase\Algorithms\KD\KD_Node.h" />
+    <ClInclude Include="Broadphase\Algorithms\KD\KD_Object.h" />
+    <ClInclude Include="Broadphase\Algorithms\Misc\None.h" />
+    <ClInclude Include="Broadphase\Algorithms\Misc\Inspectors.h" />
+    <ClInclude Include="Broadphase\Algorithms\CGAL\CGAL.h" />
+    <ClInclude Include="Broadphase\Algorithms\SoAAlgorithm.h" />
+    <ClInclude Include="Broadphase\OverlapChaches\HashedCache.h" />
+    <ClInclude Include="Core\Algorithms.h" />
+    <ClInclude Include="Core\Math\SIMD.h" />
+    <ClInclude Include="Broadphase\Algorithms\Grid\Internal\GridSuperstructure.hpp" />
+    <ClInclude Include="Broadphase\Algorithms\Grid\Internal\SegSNP.hpp" />
+    <ClInclude Include="Broadphase\Algorithms\Grid\Internal\SweepAndPrune.hpp" />
+    <ClInclude Include="Broadphase\Algorithms\Grid\Internal\Utility.hpp" />
+    <ClInclude Include="Broadphase\Algorithms\Tracy\Tracy.h" />
+    <ClInclude Include="Core\Parallel.h" />
+    <ClInclude Include="Dependencies\Bullet2\btAxisSweep3.h" />
+    <ClInclude Include="Dependencies\Bullet2\btAxisSweep3Internal.h" />
+    <ClInclude Include="Dependencies\Bullet2\btBroadphaseInterface.h" />
+    <ClInclude Include="Dependencies\Bullet2\btBroadphaseProxy.h" />
+    <ClInclude Include="Dependencies\Bullet2\btCollisionAlgorithm.h" />
+    <ClInclude Include="Dependencies\Bullet2\btDbvt.h" />
+    <ClInclude Include="Dependencies\Bullet2\btDbvtBroadphase.h" />
+    <ClInclude Include="Dependencies\Bullet2\btDispatcher.h" />
+    <ClInclude Include="Dependencies\Bullet2\btOverlappingPairCache.h" />
+    <ClInclude Include="Dependencies\Bullet2\btOverlappingPairCallback.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btAabbUtil2.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btAlignedAllocator.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btAlignedObjectArray.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btGeometryUtil.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btMatrix3x3.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btMatrixX.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btMinMax.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btQuadWord.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btQuaternion.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btQuickprof.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btScalar.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btThreads.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btTransform.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btTransformUtil.h" />
+    <ClInclude Include="Dependencies\Bullet2\LinearMath\btVector3.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Collision\BroadPhaseCollision\b3BroadphaseCallback.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Collision\BroadPhaseCollision\b3DynamicBvh.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Collision\BroadPhaseCollision\b3DynamicBvhBroadphase.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Collision\BroadPhaseCollision\b3OverlappingPair.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Collision\BroadPhaseCollision\b3OverlappingPairCache.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Collision\BroadPhaseCollision\shared\b3Aabb.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3AlignedAllocator.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3AlignedObjectArray.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3CommandLineArgs.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3FileUtils.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3HashMap.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3Logging.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3Matrix3x3.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3MinMax.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3PoolAllocator.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3QuadWord.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3Quaternion.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3Random.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3ResizablePool.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3Scalar.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3StackAlloc.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3Transform.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3TransformUtil.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\b3Vector3.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\shared\b3Float4.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\shared\b3Int2.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\shared\b3Int4.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\shared\b3Mat3x3.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\shared\b3PlatformDefinitions.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Common\shared\b3Quat.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Geometry\b3AabbUtil.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3Geometry\b3GeometryUtil.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\b3GpuBroadphaseInterface.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\b3GpuGridBroadphase.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\b3GpuParallelLinearBvh.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\b3GpuParallelLinearBvhBroadphase.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\b3GpuSapBroadphase.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\b3SapAabb.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\kernels\gridBroadphaseKernels.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\kernels\parallelLinearBvhKernels.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\BroadphaseCollision\kernels\sapKernels.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\Initialize\b3OpenCLInclude.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\Initialize\b3OpenCLUtils.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3BoundSearchCL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3BufferInfoCL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3FillCL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3LauncherCL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3OpenCLArray.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3PrefixScanCL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3PrefixScanFloat4CL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\b3RadixSort32CL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\kernels\BoundSearchKernelsCL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\kernels\CopyKernelsCL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\kernels\FillKernelsCL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\kernels\PrefixScanKernelsCL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\kernels\PrefixScanKernelsFloat4CL.h" />
+    <ClInclude Include="Dependencies\Bullet3\Bullet3OpenCL\ParallelPrimitives\kernels\RadixSort32KernelsCL.h" />
+    <ClInclude Include="Dependencies\ctpl.h" />
+    <ClInclude Include="Dependencies\Tracy\GridSuperstructure.hpp" />
+    <ClInclude Include="Dependencies\Tracy\SegSNP.hpp" />
+    <ClInclude Include="Dependencies\Tracy\SweepAndPrune.hpp" />
+    <ClInclude Include="Dependencies\Tracy\Utility.hpp" />
+    <ClInclude Include="Broadphase\Algorithms\iSAP\AxisSweep.h" />
+    <ClInclude Include="Broadphase\Algorithms\SAP\SAP.h" />
+    <ClInclude Include="Broadphase\BroadphaseInterface.h" />
+    <ClInclude Include="Broadphase\Object.h" />
+    <ClInclude Include="Broadphase\ObjectPair.h" />
+    <ClInclude Include="Broadphase\OverlapCache.h" />
+    <ClInclude Include="Broadphase\OverlapChaches\NullCache.h" />
+    <ClInclude Include="Broadphase\OverlapChaches\SimpleCache.h" />
+    <ClInclude Include="Configs.h" />
+    <ClInclude Include="Core\Assertions.h" />
+    <ClInclude Include="Core\Math\Aabb.h" />
+    <ClInclude Include="Core\Math\Axis.h" />
+    <ClInclude Include="Core\Clock.h" />
+    <ClInclude Include="Core\Math\Plane.h" />
+    <ClInclude Include="Core\Math\Random.h" />
+    <ClInclude Include="Core\Results.h" />
+    <ClInclude Include="Core\Settings.h" />
+    <ClInclude Include="Core\Scene.h" />
+    <ClInclude Include="Core\Structures\Pool.h" />
+    <ClInclude Include="Core\Structures\Stack.h" />
+    <ClInclude Include="Core\Math\Vec3.h" />
+    <ClInclude Include="Dependencies\doctest.h" />
+    <ClInclude Include="Dependencies\json.hpp" />
+    <ClInclude Include="Macros.h" />
+    <ClCompile Include="Broadphase\Algorithms\CGAL\CGAL.cpp" />
+    <ClCompile Include="Core\Algorithm.cpp" />
+    <ClCompile Include="Core\Results.cpp" />
+    <ClCompile Include="Tests\SettingsTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AppMain.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\BF\BF.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\DBVT\DBVT.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\Tracy\Tracy.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\iSAP\AxisSweep.cpp" />
+    <ClCompile Include="Broadphase\Algorithms\SAP\SAP.cpp" />
+    <ClCompile Include="Core\Math\Random.cpp" />
+    <ClCompile Include="Core\Assertions.cpp" />
+    <ClCompile Include="Core\Math\Vec3.cpp" />
+    <ClCompile Include="Core\Settings.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Core\zReadme.txt" />
+    <Text Include="Dependencies\zReadme.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

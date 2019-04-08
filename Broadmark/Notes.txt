@@ -1,0 +1,15 @@
+
+
+
+Resolver o Logger:
+	Ter métodos específicos mesmo, ao invés dos enums
+	Ter o LogCustom, pro cara imprimir coisas dele
+	Manter o Comment
+	
+	Escrever como Json?
+		Tirar de mim a responsabilidade de ler
+		Deixar outras pessoas fazerem o sistema delas
+		Permitir nomes não limitados
+
+	O teste é um objeto
+	Cada frame é um dict
