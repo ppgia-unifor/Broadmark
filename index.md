@@ -1,6 +1,6 @@
 ![Broadmark](/images/main-logo.png)
 
-**Broadmark** is a framework for the development, testing and evaluation of broad phase collision detection algorithms. Our framework consists of a Unity-based scenario generation tool and a C++ environment to execute algorithms upon generated scenes.
+Our framework consists of a Unity-based scenario generation tool and a C++ environment to execute algorithms upon generated scenes.
 
 Out-of-the-box, we currently implement the following:
 - Scenario Generation Engines:
