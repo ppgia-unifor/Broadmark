@@ -17,6 +17,7 @@ public class BulletEngine : PhysicsEngine {
     private CollisionDispatcher Dispatcher;
     private DbvtBroadphase Broadphase;
     private DiscreteDynamicsWorld World;
+    public static float BulletScaleFix;
 
     public override void Initialize(SimulationParameters parameters) {
         this.parameters = parameters;
@@ -25,13 +26,12 @@ public class BulletEngine : PhysicsEngine {
         this.Broadphase = new DbvtBroadphase {
             DeferredCollide = true
         };
-        
+
         this.World = new DiscreteDynamicsWorld(this.Dispatcher, this.Broadphase, null, this.CollisionConf) {
-            Gravity = new btVector3(0, parameters.Gravity, 0)
+            Gravity = new btVector3(0, parameters.Gravity, 0),
+            ConstraintSolver = new NncgConstraintSolver(),
+            SynchronizeAllMotionStates = true
         };
-        
-        this.World.ConstraintSolver = new NncgConstraintSolver();
-        this.World.SynchronizeAllMotionStates = true;
     }
 
     public override void SetGravity(Vector3 gravity) {
@@ -93,7 +93,6 @@ public class BulletEngine : PhysicsEngine {
         this.Dispatcher?.Dispose();
         this.CollisionConf?.Dispose();
     }
-
 
     protected override void BeginStep() { }
 

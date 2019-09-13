@@ -46,8 +46,7 @@ public class BulletBody : PhysicsBody {
             default: throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
 
-        btVector3 localInertia;
-        shape.CalculateLocalInertia(mass, out localInertia);
+        shape.CalculateLocalInertia(mass, out btVector3 localInertia);
         RigidBodyConstructionInfo rbInfo = new RigidBodyConstructionInfo(mass, new BGameObjectMotionState(this.transform), shape, localInertia);
 
         this.body = new RigidBody(rbInfo);
