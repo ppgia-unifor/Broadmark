@@ -11,7 +11,7 @@
 
 using namespace std;
 
-
+// Checks if serializing/deserializing a json leads to the same data
 TEST_CASE("Settings_Json_Input_and_Output") {
 	Settings startingParams;
 	startingParams.m_inputScene = "Input";

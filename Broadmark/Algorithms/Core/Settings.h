@@ -7,6 +7,9 @@
 #include <string>
 
 
+// Input data of the Broadmark System. This is provided via a json file passed
+// via command line arguments. During initialization, a settings object is 
+// "inflated" with some additional data collected from the scene's header
 class Settings {
 public:
 	std::string m_inputScene = "";
@@ -34,7 +37,7 @@ public:
 	}
 };
 
-// Settings + some scene specific values
+// Settings + some scene specific values read from the scene header
 class InflatedSettings : public Settings {
 public:
 	size_t m_numberOfObjects = 0;

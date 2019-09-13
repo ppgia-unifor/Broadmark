@@ -9,6 +9,7 @@
 #include "Broadphase/Object.h"
 
 
+// Implementation of a 'Plane' object. Used extensively for the KD-Tree implementation
 struct Plane {
 	Axis m_axis;
 	float m_position;

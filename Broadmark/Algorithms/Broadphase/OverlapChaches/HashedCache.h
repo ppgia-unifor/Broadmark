@@ -9,6 +9,10 @@
 #include <unordered_set>
 
 
+// Pair cache implementation based on hashing.
+// Pairs are stored in random order, as defined by the std::unordered_set
+// This implementation is useful for algorithms that require checking if a
+// pair is already present on the cache
 class HashedCache : public OverlapCache {
 private:
 	std::unordered_set<ObjectPair> m_overlaps;

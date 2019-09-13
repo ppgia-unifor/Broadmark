@@ -10,6 +10,7 @@
 
 using nlohmann::json;
 
+// Object that holds collected measurements in json format. 
 class Results {
 private:
 	class ResultsInternal {
@@ -42,6 +43,7 @@ public:
 	}
 
 	static void Finish() {
+		// dumps the json to a string using 4 whitespaces as identation
 		std::string dump = m_instance->results.dump(4);
 
 		std::ofstream file;

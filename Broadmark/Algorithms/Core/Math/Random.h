@@ -9,6 +9,7 @@
 #include "Core/Math/Vec3.h"
 
 
+// C++11 based RNG functionality
 class Random {
 private:
 	static std::uniform_real_distribution<float> real_distribution;

@@ -7,6 +7,8 @@
 #include "Core/Results.h"
 
 
+// High-resolution clock implementation
+// This is one of the few windows-only parts of the code
 class Clock {
 private:
 	LARGE_INTEGER m_freq;

@@ -13,6 +13,11 @@
 
 
 
+// Extension of the 'BaseAlgorithm' class that maintains a Structure-of-Arrays (SoA)
+// storage of objects AABBs. This class is useful for implementing SIMD based algorithms
+// As for 'BaseAlgorithm', the 'Object' and 'PairCache' classes are template arguments
+// Additionally, the SIMD type and width are also template arguments
+// Do not forget that new algorithms should be registered at 'Algorithms.cpp'
 #define FloatToSIMD(x) *(_simd*)&(x)
 template<typename ObjectType, typename CacheType, typename _simd, size_t w>
 class SoAAlgorithm : public BaseAlgorithm<ObjectType, CacheType> {
@@ -61,9 +66,11 @@ public:
 	void SearchOverlaps() override = 0;
 
 
+	// Updates the entire SoA storage
 	void UpdateSOA() {
 		this->UpdateSOA(0, this->m_settings.m_numberOfObjects);
 	}
+	// Updates a specific portion of the SoA storage
 	void UpdateSOA(int start, int end) {
 		for (size_t i = start; i < end; i++) {
 			m_min[0][i] = this->m_objects[i].m_aabb.m_min[0];
@@ -75,6 +82,7 @@ public:
 		}
 	}
 
+	// Fetches one object from the SoA array
 	__forceinline SimdObject LoadObject(const size_t i) {
 		return {
 			FloatToSIMD(m_min[0][i]),

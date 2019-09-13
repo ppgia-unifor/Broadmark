@@ -3,6 +3,7 @@
 
 #include "ObjectPair.h"
 
+// Base class for Collision Pairs containers
 class OverlapCache {
 public:
 	virtual ~OverlapCache() = default;

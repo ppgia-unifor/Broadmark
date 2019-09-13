@@ -4,6 +4,7 @@
 #include "Object.h"
 
 
+// Robust implementation of a Object Pair object
 struct ObjectPair {
 	const Object *m_a;
 	const Object *m_b;
@@ -52,6 +53,7 @@ struct ObjectPair {
 };
 
 namespace std {
+	// Implementation of 'GetHashCode()' for object pairs
 	template <>
 	struct hash<ObjectPair> {
 		std::size_t operator()(const ObjectPair& pair) const {

@@ -5,6 +5,8 @@
 #include "Dependencies\doctest.h"
 #include <type_traits> // for static_assert
 
+// This file provides a ASSERT and COMMENT macros for debuging and logging
+// These are wired to 'doctest' for more useful info on assertions
 
 void initializeDocTestForAssertionsOutOfTestCases();
 #ifdef DEBUG_MODE

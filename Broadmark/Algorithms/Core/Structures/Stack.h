@@ -6,6 +6,7 @@
 #include <memory>
 
 
+// Straight forward Stack implementation
 template<typename T>
 class Stack {
 public:

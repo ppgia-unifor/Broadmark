@@ -9,10 +9,12 @@
 #include <immintrin.h>
 
 
+// SIMD SoA AABB type
 typedef std::array<__m128, 6> SSEObject;
 typedef std::array<__m256, 6> AVXObject;
 
 
+// Some useful SIMD methods
 class SIMD {
 public:
 	static bool IsGreater(const __m128& a, const __m128& b) {

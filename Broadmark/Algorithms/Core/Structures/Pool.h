@@ -6,6 +6,9 @@
 #include <memory>
 #include "Macros.h"
 
+
+// Basic memory pool implementation
+
 #define TEMPLATE_DEFINITION template <typename T>
 typedef size_t PoolHandle;
 

@@ -5,7 +5,7 @@
 #include "Vec3.h"
 #include "SIMD.h"
 
-
+// Practical AABB implementation with a normal and SIMD test implementation
 struct Aabb {
 	Vec3 m_min;
 	Vec3 m_max;
@@ -28,16 +28,20 @@ struct Aabb {
 		return m_min <= m_max && m_min[3] == 0.0f && m_max[3] == 0.0f;
 	}
 
+
+	// Helper to allow AABB tests between objects that contain an AABB
 	template<typename tA, typename tB>
 	static bool Test(tA a, tB b) {
 		return Test(a->m_aabb, b->m_aabb);
 	}
+	// AABB vs AABB scalar test
 	static bool Test(const Aabb& a, const Aabb& b) {
 		return
 			a.m_max[0] >= b.m_min[0] && a.m_min[0] <= b.m_max[0] &&
 			a.m_max[1] >= b.m_min[1] && a.m_min[1] <= b.m_max[1] &&
 			a.m_max[2] >= b.m_min[2] && a.m_min[2] <= b.m_max[2];
 	}
+	// AABB vs AABB SSE test
 	static bool Test(const SSEObject& a, const SSEObject& b, int results[4]) {
 		__m128 p[3], q[3];
 		for (size_t i = 0; i < 3; i++) {
@@ -59,6 +63,7 @@ struct Aabb {
 			return true;
 		}
 	}
+	// AABB vs AABB AVX test
 	static bool Test(const AVXObject& a, const AVXObject& b, int results[8]) {
 		__m256 p[3], q[3];
 		for (size_t i = 0; i < 3; i++) {
@@ -81,6 +86,7 @@ struct Aabb {
 		}
 	}
 
+	// Checks if 'b' is completely inside of 'a'
 	static bool Inside(const Aabb& a, const Aabb& b) {
 		return
 			a.m_min[0] < b.m_min[0] &&
@@ -90,6 +96,7 @@ struct Aabb {
 			b.m_max[1] < a.m_max[1] &&
 			b.m_max[2] < a.m_max[2];
 	}
+	// Helper to allow 'inside' checks to be done on objects that contain AABBs
 	template<typename tA, typename tB>
 	static bool Inside(tA a, tB b) {
 		return Aabb::Inside(a->m_aabb, b->m_aabb);

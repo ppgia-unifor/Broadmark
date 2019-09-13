@@ -23,14 +23,3 @@ possess only the relevant functionality for the project.
 As a side note, we sought to provide only basic interfaces for each class, so that they can be changed later
 if needed. The most important example is the Vec3 class. We did not implement calls such as the dot product
 or cross product because, in this project, Vec3 objects are mainly treated as points, not vectors.
-If you wish to use another Vec3 class, such as Bullet's btVector3, or glm::vec3, you can typedef it, such as
-	typedef btVector3 Vec3;
-
-However, keep in mind that all of the Vec3 functionality we use must be present (and with the same name) on
-your Vec3 class. To ensure this, use the Vec3.h header as refence for all needed methods/attributes we use
-and then add the necessary alias methods and unions to your own Vec3 object.
-As reference, we provide a basic Vec3 implementation, a SIMD Vec3 implementation and a Bullet's btVector3
-alias to use the Bullet Vec3 class.
-
-
-For each subfolder, another zReadme file explains the meaning of each file.

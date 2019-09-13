@@ -8,6 +8,14 @@
 #include <iostream>
 #include <iomanip>
 
+
+
+// This is the main entry point of the Broadmark system
+// It is divided into two parts, one for 'release' builds, 
+// which is based on reading command line args, and a part
+// for 'debug' builds, which runs without command line args
+
+
 #undef min
 #undef max
 #undef fabs
@@ -15,24 +23,37 @@
 #include "Dependencies/doctest.h"
 
 
+// Algorithm that will be used in Release mode
 #define DEBUG_ALGORITHM "GPU_SAP"
 
+// Algorithm that will be used to double-check the algorithms
 #if DEBUG
+// We suggest 'SAP_AVX' for validation as it is reasonably fast
+// and easy/short enough to be human inspectable
 #define VALIDATION_ALGORITHM "SAP_AVX"
 #else
+// The 'none' algorithm disables validation. This is useful as
+// in release we are usually not interested in validation anymore
+// However, to debug larger scenes, using release mode validation
+// can be a cost-effective solution
 #define VALIDATION_ALGORITHM "None"
 #endif
 
 
-
+// For a better estimate of remaining time, we use a Weighted Exponential
+// moving average. Alpha = 0.3 works well in practice.
 double weightedExponentialMovingAverage(double current, double average) {
 	const double alpha = 0.3;
 	return alpha * current + (1 - alpha) * average;
 }
 
+// This is the 'core' function of the Broadmark system. It takes a 'settings'
+// parameter, which has the algorithm, scene and parameters that should be used.
+// In sequence, it sets everything up and runs the algorithms, measuring them
 void execute(const Settings& settings) {
 	Scene scene(settings.m_inputScene.c_str());
 
+	// A 'inflated' scene has some scene specific data fed into it.
 	const InflatedSettings inflatedSettings(settings, scene.GetHeader());
 	std::unique_ptr<BroadphaseInterface> algorithm = Algorithms::Create(inflatedSettings.m_algorithm.c_str());
 	std::unique_ptr<BroadphaseInterface> validation = Algorithms::Create(VALIDATION_ALGORITHM);
@@ -48,12 +69,17 @@ void execute(const Settings& settings) {
 	std::cout << "Algorithm: " << inflatedSettings.m_algorithm_prettyName << '\n';
 	std::cout << "Scene: " << inflatedSettings.m_inputScene << '\n';
 
+	// Reading the 'first frame', which has the initial AABBs of objects
+	// Although we measure the time taken to initialize algorithms, we only
+	// use this info as a starting value for the average time taken per frame.
+	// This info is only used to compute the test remaining time.
 	const SceneFrame& initialData = scene.GetNextFrame();
 	double avgDt = Measure([&] {
 		algorithm->Initialize(inflatedSettings, initialData);
 		validation->Initialize(inflatedSettings, initialData);
 	});
 
+	// Actual test code
 	Results::Init(inflatedSettings);
 	for (size_t i = 0; i < scene.GetHeader().m_numberOfFrames; i++) {
 		const SceneFrame& frameData = scene.GetNextFrame();
@@ -61,7 +87,7 @@ void execute(const Settings& settings) {
 		const double dt = Measure([&] {
 			Results::BeginFrame();
 			algorithm->ExecuteAndMeasure(frameData);
-			algorithm->GetOverlaps()->Validate();
+			algorithm->GetOverlaps()->Validate(); // Does nothing at 'release' mode
 			Results::EndFrame();
 		});
 
@@ -81,21 +107,23 @@ void execute(const Settings& settings) {
 		ASSERT(algorithm->GetOverlaps()->Size() >= validation->GetOverlaps()->Size());
 
 #ifndef DEBUG
-		// avoids wasting too much time on slow algorithms or on bad alg-scene combinations
-		// some algorithms are really bad just at the beggining, so we give them up to 50 frames
-		// to reach a < 0.75s time
-		//if (//avgDt > 2.5f ||
-		//	i > 5 && avgDt > 2.0f ||
-		//	i > 15 && avgDt > 1.0f) {
-		//	std::cout << "\n\tToo slow, aborting...\n";
-		//	return;
-		//}
+		// Avoids wasting too much time on slow algorithms or on bad alg-scene combinations
+		// some algorithms are really bad just at the beggining, so we give them some 
+		// tolerance at the beggining.
+		// If you want to simulate algorithms despite them being too slow, you should
+		// comment out this 'if'
+		if (i > 5 && avgDt > 2.0f ||
+			i > 15 && avgDt > 1.0f) {
+			std::cout << "\n\tToo slow, aborting...\n";
+			return;
+		}
 #endif
 	}
 
 	Results::Finish();
 }
 
+// Used on 'release' mode when the '-tests' argument is passed
 void main_tests() {
 	doctest::Context context;
 
@@ -106,6 +134,7 @@ void main_tests() {
 		exit(0);
 	}
 }
+// Used when compiling in 'debug'. It creates a json in-memory instead of looking for one
 void main_debug() {
 	Settings settings;
 	settings.m_inputScene = "E:/Simulations/Recordings_AABBs/Brownian Cubes N768000 F1000frames.aabbs";
@@ -118,6 +147,7 @@ void main_debug() {
 
 	execute(settings);
 }
+// Used on 'release' mode if a json file path is provided
 void main_release(const char* path) {
 	std::ifstream file(path);
 	if (file.fail()) {
@@ -143,6 +173,7 @@ void main_release(const char* path) {
 	settings.Validate();
 	execute(settings);
 }
+// Used in 'release' mode when no or invalid arguments are passed
 void main_help() {
 	const std::vector<const char*> algorithms = Algorithms::EnumerateAlgorithms();
 

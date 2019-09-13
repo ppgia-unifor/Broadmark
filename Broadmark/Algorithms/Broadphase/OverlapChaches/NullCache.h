@@ -9,6 +9,7 @@
 #include <unordered_set>
 
 
+// Null pair cache implementation. Useful for debugging
 class NullCache : public OverlapCache {
 public:
 	int m_numOfOverlaps;

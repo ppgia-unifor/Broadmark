@@ -9,6 +9,9 @@
 #include <unordered_set>
 
 
+// Basic Object Pairs container implementation, based on a std::vector
+// Objects are stored in the order they are reported
+// This is usually the best option for most algorithms
 class SimpleCache : public OverlapCache {
 public:
 	std::vector<ObjectPair> m_overlaps;

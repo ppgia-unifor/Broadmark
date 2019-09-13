@@ -14,6 +14,9 @@
 
 // Basic interface for all broad phase algorithms. 
 // Each method is defined in the order they are called during execution
+// See the 'Execute()' method for more details
+// This is the lowest level approach to implementing a new algorithm.
+// Do not forget that new algorithms should be registered at 'Algorithms.cpp'
 class BroadphaseInterface {
 public:
 	virtual ~BroadphaseInterface() = default;

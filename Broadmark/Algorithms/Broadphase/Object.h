@@ -9,6 +9,7 @@
 #include "Core/Math/Axis.h"
 
 
+// Minimal broad phase object class
 StructAlignment(16)
 class Object {
 public:
@@ -27,11 +28,8 @@ public:
 	friend bool operator!=(const Object& lhs, const Object& rhs) { return !(lhs == rhs); }
 };
 
-//template<typename ObjectType, Axis axis>
-//bool ObjectComparer(const ObjectType& p1, const ObjectType& p2) {
-//	return p1.m_aabb.m_min[axis] < p2.m_aabb.m_min[axis];
-//}
 
+// STL compatible comparer for 'Object' objects
 template<typename ObjectType>
 struct ObjectComparer {
 private:
@@ -46,6 +44,7 @@ public:
 };
 
 
+// STL compatible comparer for 'Object' pointers
 template<typename ObjectType>
 struct ObjectPointerComparer {
 private:

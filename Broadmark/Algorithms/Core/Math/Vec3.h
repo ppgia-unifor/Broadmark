@@ -10,7 +10,7 @@
 #undef min
 #undef max
 
-
+// Minimalistic Vector 3 implementation
 StructAlignment(16)
 struct Vec3 {
 public:
