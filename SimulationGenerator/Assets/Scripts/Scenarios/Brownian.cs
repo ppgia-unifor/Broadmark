@@ -46,7 +46,7 @@ public class Brownian : Simulation {
         Bounds worldBounds = new Bounds(Vector3.zero, Vector3.one * this.Parameters.WorldSideLength);
         foreach (PhysicsBody body in this.Bodies) {
             if (!worldBounds.Contains(body.Bounds.center)) {
-                body.SetPositionAndRotation(UnityEngine.Random.insideUnitSphere * this.Parameters.WorldSideLength, body.transform.rotation);
+                body.SetPositionAndRotation(UnityEngine.Random.insideUnitSphere * this.Parameters.WorldSideLength * 0.5f, body.transform.rotation);
             }
         }
         #endregion

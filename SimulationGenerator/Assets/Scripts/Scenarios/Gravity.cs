@@ -10,7 +10,7 @@ using UnityEngine;
 public class Gravity : Simulation {
     public Gravity() : base(SimulationType.Gravity) { }
 
-    public float GravityFrequency = 3;//7.2f;
+    public float GravityFrequency = 6.2f;
     public float GravityScale = 4;
     public float step;
 
@@ -42,7 +42,7 @@ public class Gravity : Simulation {
         Bounds worldBounds = new Bounds(Vector3.zero, Vector3.one * this.Parameters.WorldSideLength);
         foreach (PhysicsBody body in this.Bodies) {
             if (!worldBounds.Contains(body.Bounds.center)) {
-                body.SetPositionAndRotation(UnityEngine.Random.insideUnitSphere * this.Parameters.WorldSideLength, body.transform.rotation);
+                body.SetPositionAndRotation(UnityEngine.Random.insideUnitSphere * this.Parameters.WorldSideLength * 0.5f, body.transform.rotation);
             }
         } 
         #endregion
