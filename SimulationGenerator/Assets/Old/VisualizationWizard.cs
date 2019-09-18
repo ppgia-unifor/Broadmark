@@ -1,4 +1,5 @@
-﻿// SimulationGenerator - VisualizationWizard.cs (2019)
+﻿// SimulationGenerator - Visualization
+// .cs (2019)
 // Copyright: Ygor Rebouças Serpa
 
 

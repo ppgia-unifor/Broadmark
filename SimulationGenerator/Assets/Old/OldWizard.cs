@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Wizard : MonoBehaviour {
+public class OldWizard : MonoBehaviour {
     private bool AllSet = false;
     public GameObject CubePrefab;
     public GameObject[] ScenarioPrefabs;

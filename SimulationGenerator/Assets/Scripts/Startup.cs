@@ -7,7 +7,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+/// <summary>
+/// This script assembles everything needed to run a batch of tests
+/// This script is meant to be used from the editor, to debug/develop
+/// scenes and engines.
+/// Also, the 'Wizard' script creates a startup object from GUI-provided
+/// data to run simulations from a build in run-time.
+/// </summary>
 public class Startup : MonoBehaviour {
+    public Wizard wizard;
+
     public string OutputRoot = "";
     public PhysicsEngineType Engine;
     public bool Record = false;
@@ -46,6 +55,7 @@ public class Startup : MonoBehaviour {
             }
         }
 
+        r.wizard = this.wizard;
         r.parameters = list.ToArray();
 
         r.enabled = true;

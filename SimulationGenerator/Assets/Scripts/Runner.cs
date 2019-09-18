@@ -9,9 +9,12 @@ using System.Reflection;
 using UnityEngine;
 
 
-//using UnityEditor;
-
+/// <summary>
+/// This script runs a set of 'SimulationParameters' simulation parameters.
+/// Usually, these 'SimulationParameters' are generated from a 'Startup' script
+/// </summary>
 public class Runner : MonoBehaviour {
+    public Wizard wizard;
     public GUISkin guiSkin;
     public bool showDebugInfo;
     public SimulationParameters[] parameters;
@@ -52,6 +55,10 @@ public class Runner : MonoBehaviour {
                 s.Stop();
             }
         }
+
+        // If there is a wizard, go back to it
+        this.wizard?.gameObject.SetActive(true);
+        UnityEngine.Object.Destroy(this.gameObject);
     }
 
     private void OnGUI() {
