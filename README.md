@@ -26,7 +26,7 @@ Out-of-the-box, we have currently implemented the following:
 
 ## Runing the Code
 
-The Simulation Generator tool has been implemented using the Unity 2019.2 edition, but should probably work on any 2017+ version. For non-unity users, a pre-built version for Windows x64 is available at the 'SimulationGenerator_Build/' folder.
+The Simulation Generator tool has been implemented using the Unity 2019.2 edition, but should probably work on any 2017+ version. For non-unity users, a pre-built version for Windows x64 is available at the 'releases' section of the GitHub repository.
 
 The Broadmark tool comes with Visual Studio 2017 solution files but can be run from VS Code without much trouble. The code was originally written and tested only on Windows machines. However, it is fairly SO agnostic and should not be difficult to run on Linux or MAC under Clang or maybe GCC. The threading portion is completely implemented as either STL threads or OpenMP and all dependencies are either bundled or can be compiled to other OSes.
 
