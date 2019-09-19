@@ -26,11 +26,11 @@ Out-of-the-box, we have currently implemented the following:
 
 ## Runing the Code
 
-The Simulation Generator tool has been implemented using the Unity 2018.2 edition, but should probably work on any 2017+ version.
+The Simulation Generator tool has been implemented using the Unity 2019.2 edition, but should probably work on any 2017+ version. For non-unity users, a pre-built version for Windows x64 is available at the 'SimulationGenerator_Build/' folder.
 
 The Broadmark tool comes with Visual Studio 2017 solution files but can be run from VS Code without much trouble. The code was originally written and tested only on Windows machines. However, it is fairly SO agnostic and should not be difficult to run on Linux or MAC under Clang or maybe GCC. The threading portion is completely implemented as either STL threads or OpenMP and all dependencies are either bundled or can be compiled to other OSes.
 
-Most of the system will work out-of-the-box, except for the CGAL and OpenCL algorithms. For the CGAL algorithm to work, you will have to compile the CGAL library yourself and link to the application. The easiest way to do this is to use the [Vcpkg](https://github.com/Microsoft/vcpkg) tool. For the OpenCL algorithms, you will need to download and install the OpenCL SDK of your graphics card vendor. Currently, we have only tested the application under NVidia Cards using the CUDA Toolkit 8 and 9. I would be glad to hear if the system worked fine on AMD or Intel cards as well.
+Most of the system will work out-of-the-box, except for the CGAL and OpenCL algorithms. For the CGAL algorithm to work, you will have to compile the CGAL library yourself and link to the application. The easiest way to do this is to use the [Vcpkg](https://github.com/Microsoft/vcpkg) tool. For the OpenCL algorithms, you will need to download and install the OpenCL SDK of your graphics card vendor. Currently, we have only tested the application under Nvidia Cards using the CUDA Toolkit 8 and 9. I would be glad to hear if the system worked fine on AMD or Intel cards as well.
 
 
 
