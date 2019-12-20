@@ -47,7 +47,7 @@ public class Simulation : IDisposable {
             this.Listeners.Add(new MovieRecorder());
         }
 
-        if (this.Parameters.N > 4000) {
+        if (this.Parameters.N > 4000 && this.Parameters.Engine != PhysicsEngineType.Viewer) {
             foreach (PhysicsBody body in this.Bodies) {
                 body.Renderer.lightProbeUsage = LightProbeUsage.Off;
                 body.Renderer.reflectionProbeUsage = ReflectionProbeUsage.Off;

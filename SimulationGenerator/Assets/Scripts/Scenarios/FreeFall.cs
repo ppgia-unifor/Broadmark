@@ -1,4 +1,4 @@
-﻿// SimulationGenerator - FreeFall.cs (2019)
+// SimulationGenerator - FreeFall.cs (2019)
 // Copyright: Ygor Rebouças Serpa
 
 
