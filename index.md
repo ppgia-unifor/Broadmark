@@ -1,6 +1,6 @@
-![https://github.com/ppgia-unifor/Broadmark](/images/main-logo.png)
+![Broadmark](/images/main-logo.png)
 
-Our framework consists of a Unity-based scenario generation tool and a C++ environment to execute algorithms upon generated scenes. Source code available at [Github](github.com/ppgia-unifor/Broadmark)
+Our framework consists of a Unity-based scenario generation tool and a C++ environment to execute algorithms upon generated scenes. 
 
 Out-of-the-box, we currently implement the following:
 - Scenario Generation Engines:
@@ -26,7 +26,7 @@ Out-of-the-box, we currently implement the following:
 
 ## Runing the Code
 
-The source code is available at [Github](github.com/ppgia-unifor/Broadmark)
+The source code is available at [Github](https://github.com/ppgia-unifor/Broadmark)
 
 The Simulation Generator tool was made using the Unity 2019.2 edition, but should probably work on any 2017+ version.
 
