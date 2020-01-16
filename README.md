@@ -33,4 +33,20 @@ The Broadmark tool comes with Visual Studio 2017 solution files but can be run f
 Most of the system will work out-of-the-box, except for the CGAL and OpenCL algorithms. For the CGAL algorithm to work, you will have to compile the CGAL library yourself and link to the application. The easiest way to do this is to use the [Vcpkg](https://github.com/Microsoft/vcpkg) tool. For the OpenCL algorithms, you will need to download and install the OpenCL SDK of your graphics card vendor. Currently, we have only tested the application under Nvidia Cards using the CUDA Toolkit 8 and 9. I would be glad to hear if the system worked fine on AMD or Intel cards as well.
 
 
+## Citing our Work
+
+A complete description of the Broadmark system can be found on the article [Broadmark: A Testing Framework for Broad‐Phase Collision Detection Algorithms](https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.13884)
+
+To cite this work, please use the following bibtex entry:
+
+```
+@inproceedings{serpa2019broadmark,
+  title={Broadmark: A Testing Framework for Broad-Phase Collision Detection Algorithms},
+  author={Serpa, Ygor Rebou{\c{c}}as and Rodrigues, Maria Andr{\'e}ia Formico},
+  booktitle={Computer Graphics Forum},
+  year={2019},
+  organization={Wiley Online Library}
+}
+```
+
 
