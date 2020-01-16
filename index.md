@@ -1,6 +1,6 @@
-![Broadmark](/images/main-logo.png)
+![https://github.com/ppgia-unifor/Broadmark](/images/main-logo.png)
 
-Our framework consists of a Unity-based scenario generation tool and a C++ environment to execute algorithms upon generated scenes.
+Our framework consists of a Unity-based scenario generation tool and a C++ environment to execute algorithms upon generated scenes. Source code available at [Github](github.com/ppgia-unifor/Broadmark)
 
 Out-of-the-box, we currently implement the following:
 - Scenario Generation Engines:
@@ -26,11 +26,30 @@ Out-of-the-box, we currently implement the following:
 
 ## Runing the Code
 
-The Simulation Generator tool was made using the Unity 2018.2 edition, but should probably work on any 2017+ version.
+The source code is available at [Github](github.com/ppgia-unifor/Broadmark)
+
+The Simulation Generator tool was made using the Unity 2019.2 edition, but should probably work on any 2017+ version.
 
 The Broadmark tool comes with Visual Studio 2017 solution files but can be run from VS Code without much trouble. The code was made and tested only on Windows machines, however, it is fairly SO agnostic and should not be difficult to run on Linux or MAC under Clang or maybe GCC. The threading portion is completely implemented as either STL threads or OpenMP and all dependencies are either bundled or can be compiled to other OSes.
 
 Most of the system will work out-of-the-box, except for the CGAL and OpenCL algorithms. For the CGAL algorithm to work, you will have to compile the CGAL library yourself and link to the application. The easiest way to do this is to use the [Vcpkg](https://github.com/Microsoft/vcpkg) tool. For the OpenCL algorithms, you will need to download and install the OpenCL SDK of your graphics card vendor. Currently, we have only tested the application under NVidia Cards using the CUDA Toolkit 8 and 9. I would be glad to hear if the system worked fine on AMD or Intel cards as well.
 
+
+
+## Citing our Work
+
+A complete description of the Broadmark system can be found on the article [Broadmark: A Testing Framework for Broad‐Phase Collision Detection Algorithms](https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.13884)
+
+To cite this work, please use the following bibtex entry:
+
+```
+@inproceedings{serpa2019broadmark,
+  title={Broadmark: A Testing Framework for Broad-Phase Collision Detection Algorithms},
+  author={Serpa, Ygor Rebou{\c{c}}as and Rodrigues, Maria Andr{\'e}ia Formico},
+  booktitle={Computer Graphics Forum},
+  year={2019},
+  organization={Wiley Online Library}
+}
+```
 
 
