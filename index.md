@@ -1,3 +1,5 @@
+# Broadmark
+
 ![Broadmark](/images/main-logo.png)
 
 Our framework consists of a Unity-based scenario generation tool and a C++ environment to execute algorithms upon generated scenes. 
@@ -16,8 +18,8 @@ Out-of-the-box, we currently implement the following:
 
 - Implemented Algorithms:
   - Original Implementations: Bruteforce, Sweep-and-Prune and Grid. Several variants of these algorithms are implemented, such as SIMD optimized, Open-MP parallel and SIMD + OpenMP. For the Grid algorithm, we present it using a Grid + BF and Grid + SAP settings as well as using a 2D or 3D grid. Best variants are BF SIMD Parallel, SAP SIMD Parallel and Grid 3D SAP Parallel.
-  - Bullet 2 Algorithms: We include the btAxisSweep3 and btDBVT algorithms. For convinience, these are included in the project and compiled with the remaining files for ease of integration and to reduce dependency troubles.
-  - Bullet 3 Algorithms: We include a wrarper to use the b3OpenCL branch algorithms. These include a 3D Grid, a LBVH and a SAP implementation on OpenCL. For convinience, these are included in the project and can be compiled-out by altering the Config.h file. This is useful if you do not have a GPU compatible with OpenCL or does not have the necessary SDKs installed for compilation.
+  - Bullet 2 Algorithms: We include the btAxisSweep3 and btDBVT algorithms. For convenience, these are included in the project and compiled with the remaining files for ease of integration and to reduce dependency troubles.
+  - Bullet 3 Algorithms: We include a wrapper to use the b3OpenCL branch algorithms. These include a 3D Grid, a LBVH and a SAP implementation on OpenCL. For convinience, these are included in the project and can be compiled-out by altering the Config.h file. This is useful if you do not have a GPU compatible with OpenCL or does not have the necessary SDKs installed for compilation.
   - CGAL algorithms: We include the ["Intersecting Sequences of dD Iso oriented Boxes"](https://doc.cgal.org/latest/Box_intersection_d/index.html) algorithm. The necessary CGAL and Boost dependencies are not included in this project due to licensing and size. This algorithm can be compiled out by altering the Config.h file. A easy way to have all the dependencies set is to use the [Vcpkg](https://github.com/Microsoft/vcpkg) tool installed and download the cgal:x64-windows package.
   - Tracy's Algorithm: Original implementation of the [Efficient Large-Scale Sweep and Prune Methods with AABB Insertion and Removal](https://dl.acm.org/citation.cfm?id=1549865) paper. This used to be available at the [author's website](http://www.danieljosephtracy.com/) but it is no longer on-line.
   - KD-Tree Algorithm: Original implementation of the [Flexible Use of Temporal and Spatial Reasoning for Fast and Scalable CPU Broad‐Phase Collision Detection Using KD‐Trees](https://onlinelibrary.wiley.com/doi/full/10.1111/cgf.13529) algorithm. This is the exact same implementation as used in the paper.
