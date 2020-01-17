@@ -47,7 +47,6 @@ def plot_box(results_folder):
     ns = sorted(list(set(frame.index.get_level_values(1))))
     algorithms = list(set(frame.index.get_level_values(2)))
     
-    
     subframe = frame.transpose()[scenes[0]][ns[2]]
     
     sns.set(style="ticks", palette="pastel")
