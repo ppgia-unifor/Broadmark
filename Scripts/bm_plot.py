@@ -1,11 +1,12 @@
-
-
+# -*- coding: utf-8 -*-
+from __future__ import print_function, unicode_literals, with_statement, division, absolute_import
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from bm_utils import get_iterable
 from os.path import join
+from six.moves import zip
 
 
 def plot_bars(results_folder):

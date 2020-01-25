@@ -1,4 +1,5 @@
-
+# -*- coding: utf-8 -*-
+from __future__ import print_function, unicode_literals, with_statement, division, absolute_import
 from os import listdir
 from os.path import isfile, join, basename
 from pandas.io.json import json_normalize
@@ -26,7 +27,13 @@ def process_results(results_folder):
             data = json.load(file)
     
             # we are interested on the scene's simple name, the algorithm and the n of objects
-            scene = basename(data["Settings"]["m_inputScene"]).split(' '); scene = scene[0] + ' ' + scene[1]
+            scene_file = basename(data["Settings"]["m_inputScene"])
+            scene_tokens = scene_file.split(' ')
+            if len(scene_tokens) >= 2:
+                scene = scene_tokens[0] + ' ' + scene_tokens[1]
+            else:
+                print("Scene files generated names should not be changed. This may lead to incorrect clustering of tests by scene name.")
+                scene = scene_file
             algorithm = data["Settings"]["m_algorithm_prettyName"]
             n = data["Settings"]["m_numberOfObjects"]
     
@@ -41,7 +48,7 @@ def process_results(results_folder):
     # Columns: (scene, n, algorithm)
     # Rows: frame_number
     main_frame = frame
-    main_frame.to_csv(join(results_folder, "main_frame.csv"), sep=';')
+    main_frame.to_csv(join(results_folder, "main_frame.csv"), sep=str(';'))
     main_frame.to_excel(join(results_folder, "main_frame.xlsx"))
     main_frame.to_pickle(join(results_folder, "main_frame.pickle"))
     print("main_frame written!")
@@ -50,7 +57,7 @@ def process_results(results_folder):
     # Columns: (scene, n, algorithm)
     # Rows: frame_number
     described_frame = frame.describe()
-    described_frame.to_csv(join(results_folder, "main_described_frame.csv"), sep=';')
+    described_frame.to_csv(join(results_folder, "main_described_frame.csv"), sep=str(';'))
     described_frame.to_excel(join(results_folder, "main_described_frame.xlsx"))
     described_frame.to_pickle(join(results_folder, "main_described_frame.pickle"))
     print("main_described_frame written!")
@@ -66,7 +73,7 @@ def process_results(results_folder):
     labels = (mi_frame.columns.to_series() / 50).astype(int)
     mi_frame = mi_frame.groupby(labels, axis=1).mean()
     
-    mi_frame.to_csv(join(results_folder, "multi_index_frame.csv"), sep=';')
+    mi_frame.to_csv(join(results_folder, "multi_index_frame.csv"), sep=str(';'))
     mi_frame.to_excel(join(results_folder, "multi_index_frame.xlsx"))
     mi_frame.to_pickle(join(results_folder, "multi_index_frame.pickle"))
     print("multi_index_frame written!")
@@ -78,7 +85,7 @@ def process_results(results_folder):
     index = pd.MultiIndex.from_tuples(frame.columns)
     dmi_frame = frame.describe().transpose()
     dmi_frame = dmi_frame.set_index(index)
-    dmi_frame.to_csv(join(results_folder, "multi_index_described_frame.csv"), sep=';')
+    dmi_frame.to_csv(join(results_folder, "multi_index_described_frame.csv"), sep=str(';'))
     dmi_frame.to_excel(join(results_folder, "multi_index_described_frame.xlsx"))
     dmi_frame.to_pickle(join(results_folder, "multi_index_described_frame.pickle"))
     print("multi_index_described_frame written!")
@@ -86,7 +93,7 @@ def process_results(results_folder):
     lines_frame = dmi_frame["mean"].transpose()
     lines_frame = lines_frame.reset_index()
     lines_frame = pd.pivot_table(lines_frame, values="mean", index="level_1", columns="level_2")
-    lines_frame.to_csv(join(results_folder, "lines_frame.csv"), sep=';')
+    lines_frame.to_csv(join(results_folder, "lines_frame.csv"), sep=str(';'))
     lines_frame.to_excel(join(results_folder, "lines_frame.xlsx"))
     lines_frame.to_pickle(join(results_folder, "lines_frame.pickle"))
     print("lines_frame written!")

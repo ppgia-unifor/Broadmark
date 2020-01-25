@@ -29,13 +29,13 @@ Out-of-the-box, we currently implement the following:
 ## Runing the Code
 
 Requirements:
-- Python 3 (numpy, pandas, openpyxl, matplotlib, seaborn)
+- Python 2 or 3 (numpy, pandas, openpyxl, matplotlib, seaborn). Python 3 is preferred as Python 2 is no longer maintained. 
 - Unity 2019.2 (optional, other versions might work)
 - MVC++ Compiler (e.g., Visual Studio Community)
 
 The system consists of 3 modules: (1) a Unity-based simulation generator tool, used to bake rigid body sims to disk; (2) the broadmark C++ tool, which houses the algorithms and allows them to be benchmarked on a baked scene; and (3) a python 3 module to run tests and parse the results. Out-of-the-box, we provide pre-built binaries and some baked scenes to help getting the system up-and-running for the first time. 
 
-First, download this repository (`git clone https://github.com/ppgia-unifor/Broadmark.git`) and install the lastest Python 3. To get all python dependencies, run `pip install numpy pandas, openpyxl matplotlib seaborn`. At the [releases page](https://github.com/ppgia-unifor/Broadmark/releases), download `SimulationGenerator_Build.exe` file (if you wish to generate the simulations yourself) or download the `FreeFall Cubes N1000 F1000frames.aabbs` pre-generated scene and skip the following paragraph. Then, download the `Broadmark_x64.exe`, which is the pre-built binary of the Broadmark system. In the following, no strict directory structure is needed to run the system, however, it is advisable to put everything on a common folder and to store simulations on a drive with plenty of space. 
+First, download this repository (`git clone https://github.com/ppgia-unifor/Broadmark.git`) and install the lastest Python 3. To get all python dependencies, run `pip install numpy pandas, openpyxl matplotlib seaborn`. At the [releases page](https://github.com/ppgia-unifor/Broadmark/releases), download `SimulationGenerator_Build.exe` file (if you wish to generate the simulations yourself) or download the `FreeFall Cubes N1000 F1000frames.aabbs` pre-generated scene and skip the following paragraph. Then, download the `Broadmark_x64.exe`, which is the pre-built binary of the Broadmark system. In the following, no strict directory structure is needed to run the system, however, it is advisable to put everything on a common folder and to store simulations on a drive with plenty of space. Also, do not change generated scene names, as some portions of the code expect it to be tokenizable. 
 
 To generate scenes yourself, extract the Simulation Generation tool and run it. You should see the following screen, which allows you to customize which scenes you wish to run, for how many objects and frames, and several other options. For now, keep all default values as is, but mark "Record Simulations" and set the "Output Path" to the folder you wish to save scenes. Now, click Generate Simulations and watch/wait until finished. Finally, check the output folder for the `.aabb` files.
 

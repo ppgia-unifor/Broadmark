@@ -4,3 +4,7 @@ Scripts/__pycache__/
 Scripts/cache/
 
 Scripts/Tests/
+
+.vscode/
+
+*.pyc

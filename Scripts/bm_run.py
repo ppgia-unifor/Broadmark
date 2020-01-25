@@ -1,5 +1,5 @@
-
-
+# -*- coding: utf-8 -*-
+from __future__ import print_function, unicode_literals, with_statement, division, absolute_import
 from os import listdir, makedirs
 from os.path import isfile, join, exists
 from subprocess import Popen, CREATE_NEW_CONSOLE
