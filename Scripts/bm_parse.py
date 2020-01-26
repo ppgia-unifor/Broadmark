@@ -3,9 +3,10 @@ from __future__ import print_function, unicode_literals, with_statement, divisio
 from os import listdir
 from os.path import isfile, join, basename
 from pandas.io.json import json_normalize
-import json
 import pandas as pd
 import numpy as np
+import json
+import sys
 
 # This scripts loads all json data generated at 'results_folder' and feeds it to
 # pandas' dataframes. We do so in four layouts, for convenience:
@@ -34,9 +35,13 @@ def process_results(results_folder):
             with open(scene_file, "rb") as f:
                 # the scene's name and object types are encoded as c-style strings on the first 256 bytes of the file
                 scene_name = f.read(128)
-                scene_name = ''.join([c for c in scene_name if c != b'\x00'])
                 objtype_name = f.read(128)
-                objtype_name = ''.join([c for c in objtype_name if c != b'\x00'])
+                if sys.version_info[0] < 3:
+                    scene_name = ''.join([c for c in scene_name if c != b'\x00'])
+                    objtype_name = ''.join([c for c in objtype_name if c != b'\x00'])
+                else:
+                    scene_name = ''.join([chr(c) for c in scene_name if bytes([c]) != b'\x00'])
+                    objtype_name = ''.join([chr(c) for c in objtype_name if bytes([c]) != b'\x00'])
                 
                 scene = scene_name + ' ' + objtype_name
 
