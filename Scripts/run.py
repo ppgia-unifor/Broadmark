@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function, unicode_literals, with_statement, division, absolute_import, absolute_import
 from bm_run import generate_jsons, run_algorithms
-from bm_parse import process_results
 
 
 
@@ -17,7 +16,5 @@ additionaPropertyValues = []
 
 
 
-tests_folder = generate_jsons(batch_run_name, output_folder, scenes_folder, algorithms, additionalProperty, additionaPropertyValues)
-results_folder = run_algorithms(tests_folder, broadmark_bin)
-
-process_results(results_folder)
+tests_folder, results_folder = generate_jsons(batch_run_name, output_folder, scenes_folder, algorithms, additionalProperty, additionaPropertyValues)
+run_algorithms(tests_folder, results_folder, broadmark_bin)

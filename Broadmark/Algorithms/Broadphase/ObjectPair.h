@@ -34,7 +34,7 @@ struct ObjectPair {
 	}
 
 	bool Validate() const {
-		ASSERT(m_a->m_id < m_b->m_id);
+		//ASSERT(m_a->m_id < m_b->m_id);
 		return Aabb::Test(m_a->m_aabb, m_b->m_aabb);
 	}
 

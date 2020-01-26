@@ -25,15 +25,17 @@ public:
 	int m_KD_ObjectsPerLeaf = 512;
 
 	Settings() = default;
-	void Validate() const {
-		ASSERT(m_inputScene != "");
-		ASSERT(m_outputLog != "");
-		ASSERT(m_algorithm != "");
-		ASSERT(m_algorithm_prettyName != "");
+	void Validate() {
+		STRONG_ASSERT(m_inputScene != "", " -The test file has no input scene");
+		STRONG_ASSERT(m_outputLog != "", " -The test file has no output log");
+		STRONG_ASSERT(m_algorithm != "", " -The test file has no algorithm");
+		if (m_algorithm_prettyName.empty()) {
+			m_algorithm_prettyName = m_algorithm;
+		}
 
-		ASSERT(0 <= m_margin[0]);
-		ASSERT(0 <= m_margin[1]);
-		ASSERT(0 <= m_margin[2]);
+		STRONG_ASSERT(0 <= m_margin[0], " -The test file has a negative X margin");
+		STRONG_ASSERT(0 <= m_margin[1], " -The test file has a negative Y margin");
+		STRONG_ASSERT(0 <= m_margin[2], " -The test file has a negative Z margin");
 	}
 };
 

@@ -21,19 +21,25 @@ import numpy as np
 def process_results(results_folder):
     # reads all test resulsts
     results = [f for f in listdir(results_folder) if isfile(join(results_folder, f)) and f.endswith('.json')]
+    if len(results) == 0:
+        return
+
     frame = pd.DataFrame() # keeps a master dataframe to store all algorithms
     for r in results:
         with (open(join(results_folder, r), "r")) as file:
             data = json.load(file)
     
             # we are interested on the scene's simple name, the algorithm and the n of objects
-            scene_file = basename(data["Settings"]["m_inputScene"])
-            scene_tokens = scene_file.split(' ')
-            if len(scene_tokens) >= 2:
-                scene = scene_tokens[0] + ' ' + scene_tokens[1]
-            else:
-                print("Scene files generated names should not be changed. This may lead to incorrect clustering of tests by scene name.")
-                scene = scene_file
+            scene_file = data["Settings"]["m_inputScene"]
+            with open(scene_file, "rb") as f:
+                # the scene's name and object types are encoded as c-style strings on the first 256 bytes of the file
+                scene_name = f.read(128)
+                scene_name = ''.join([c for c in scene_name if c != b'\x00'])
+                objtype_name = f.read(128)
+                objtype_name = ''.join([c for c in objtype_name if c != b'\x00'])
+                
+                scene = scene_name + ' ' + objtype_name
+
             algorithm = data["Settings"]["m_algorithm_prettyName"]
             n = data["Settings"]["m_numberOfObjects"]
     
@@ -51,7 +57,7 @@ def process_results(results_folder):
     main_frame.to_csv(join(results_folder, "main_frame.csv"), sep=str(';'))
     main_frame.to_excel(join(results_folder, "main_frame.xlsx"))
     main_frame.to_pickle(join(results_folder, "main_frame.pickle"))
-    print("main_frame written!")
+    #print("main_frame written!")
     
     # The master dataframe in described form
     # Columns: (scene, n, algorithm)
@@ -60,7 +66,7 @@ def process_results(results_folder):
     described_frame.to_csv(join(results_folder, "main_described_frame.csv"), sep=str(';'))
     described_frame.to_excel(join(results_folder, "main_described_frame.xlsx"))
     described_frame.to_pickle(join(results_folder, "main_described_frame.pickle"))
-    print("main_described_frame written!")
+    #print("main_described_frame written!")
     
     
     # Creates a multi-indexed dataframe grouping algorithms by scene then by n
@@ -76,7 +82,7 @@ def process_results(results_folder):
     mi_frame.to_csv(join(results_folder, "multi_index_frame.csv"), sep=str(';'))
     mi_frame.to_excel(join(results_folder, "multi_index_frame.xlsx"))
     mi_frame.to_pickle(join(results_folder, "multi_index_frame.pickle"))
-    print("multi_index_frame written!")
+    #print("multi_index_frame written!")
     
     
     # Creates a multi-indexed dataframe of described data
@@ -88,7 +94,7 @@ def process_results(results_folder):
     dmi_frame.to_csv(join(results_folder, "multi_index_described_frame.csv"), sep=str(';'))
     dmi_frame.to_excel(join(results_folder, "multi_index_described_frame.xlsx"))
     dmi_frame.to_pickle(join(results_folder, "multi_index_described_frame.pickle"))
-    print("multi_index_described_frame written!")
+    #print("multi_index_described_frame written!")
 
     lines_frame = dmi_frame["mean"].transpose()
     lines_frame = lines_frame.reset_index()
@@ -96,4 +102,4 @@ def process_results(results_folder):
     lines_frame.to_csv(join(results_folder, "lines_frame.csv"), sep=str(';'))
     lines_frame.to_excel(join(results_folder, "lines_frame.xlsx"))
     lines_frame.to_pickle(join(results_folder, "lines_frame.pickle"))
-    print("lines_frame written!")
+    #print("lines_frame written!")

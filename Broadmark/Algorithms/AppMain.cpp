@@ -137,7 +137,7 @@ void main_tests() {
 // Used when compiling in 'debug'. It creates a json in-memory instead of looking for one
 void main_debug() {
 	Settings settings;
-	settings.m_inputScene = "E:/Simulations/Recordings_AABBs/Brownian Cubes N768000 F1000frames.aabbs";
+	settings.m_inputScene = "E:/Simulations/Recordings_AABBs/FreeFall Cubes N1000 F1000frames.aabbs";
 	settings.m_outputLog = "C:/Users/ygorr/Desktop/Temp/Nova pasta/log.json";
 	settings.m_algorithm = DEBUG_ALGORITHM;
 	settings.m_algorithm_prettyName = settings.m_algorithm;
@@ -197,7 +197,7 @@ int main(int argc, char** argv) {
 	main_tests();
 	#endif
 	initializeDocTestForAssertionsOutOfTestCases();
-	
+
 	#ifdef DEBUG
 	main_debug();
 	#else
