@@ -53,7 +53,7 @@ Having the simulation files ready, we can start running some algorithms. There a
     "m_algorithm": "KD",
     "m_algorithm_prettyName": "KD",
     "m_inputScene": "D:/Bitbucket/broadmark/Simulations/Recordings_AABBs/FreeFall Cubes N1000 F1000frames.aabbs",
-    "m_outputLog": "D:/Bitbucket/broadmark/Scripts/Tests/Tests 2020-01-17_13-28-56/Results/Brownian Cubes N1000 F1000frames.aabbs_KD.json_results.json",
+    "m_outputLog": "D:/Bitbucket/broadmark/Scripts/Tests/My First Broadmark Benchmark/Results/FreeFall Cubes N1000 F1000frames.aabbs_KD.json_results.json",
     "NoAdditionalProperty": ""
 }
 ```

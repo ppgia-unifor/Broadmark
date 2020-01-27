@@ -1,4 +1,3 @@
-# Simulation Generator Build Folder
+# Broadmark Folder
 
-In this folder, find enclosed a .zip file with the pre-compiled binaries for the Simulation Generation Tool.
-The tool already comes with its output path set to "../Simulations/", which is the folder in which our python scripts expect to find the .aabbs files.
+In this folder, there are the source and project files for the Broadmark tool. We currently only support building to Windows_x64, however, porting to other OSes should be difficult, as most of the code is fairly SO agnostic and all dependencies are cross-platform. 
