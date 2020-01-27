@@ -1,5 +1,5 @@
 // SimulationGenerator - Startup.cs (2019)
-// Copyright: Ygor Rebouças Serpa
+// Copyright: Ygor Rebouï¿½as Serpa
 
 
 using System;
@@ -17,7 +17,7 @@ using UnityEngine;
 public class Startup : MonoBehaviour {
     public Wizard wizard;
 
-    public string OutputRoot = "";
+    public string OutputRoot = "../Simulations/";
     public PhysicsEngineType Engine;
     public bool Record = false;
     public bool RecordMovie = false;

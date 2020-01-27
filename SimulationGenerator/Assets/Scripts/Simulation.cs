@@ -66,6 +66,16 @@ public class Simulation : IDisposable {
             this.Engine.Step(this.Parameters.FixedTimestep, this.Parameters.SubSteps);
         }
 
+        #region Dealing with objects that left the World Box by making them static
+        Bounds worldBounds = new Bounds(Vector3.zero, Vector3.one * this.Parameters.WorldSideLength);
+        foreach (PhysicsBody body in this.Bodies) {
+            if (!worldBounds.Contains(body.Bounds.center)) {
+                body.SetActivationState(false);
+                body.gameObject.isStatic = true;
+            }
+        }
+        #endregion
+
         foreach (SimulationListener listener in this.Listeners) {
             listener.OnStep(this);
         }

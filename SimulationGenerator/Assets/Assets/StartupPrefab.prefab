@@ -45,13 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wizard: {fileID: 0}
-  OutputRoot: E:\Simulations\
+  OutputRoot: ../Simulations/
   Engine: 0
   Record: 0
   RecordMovie: 0
   Frames: 1000
-  Simulations: 02000000
-  ObjectTypes: 02000000
+  Simulations: 000000000100000002000000
+  ObjectTypes: 00000000
   Ns: e8030000
   Template:
     Engine: 0
@@ -60,10 +60,10 @@ MonoBehaviour:
     Frames: 1000
     RecordSimulations: 0
     RecordMovie: 0
-    SolverIterations: 4
-    VelocityIterations: 2
+    SolverIterations: 6
+    VelocityIterations: 1
     FixedTimestep: 0.033333335
-    SubSteps: 8
+    SubSteps: 4
     ObjectsType: 0
     CubePrefab: {fileID: 1174402145028786, guid: 6e6bff3b90d5de24cad45ce34a78989c,
       type: 3}
@@ -77,6 +77,8 @@ MonoBehaviour:
     NormMaxInitialPosition: 0.9
     NormMaxInitialVelocity: 0.75
     NormGravity: 0.0981
+    FreeFall_PaintStaticObjects: 0
+    FreeFall_ForceStaticObjectsToKinematic: 0
 --- !u!114 &3400706524861782837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eaeb7a01c4d8d74b993f3506f96b259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wizard: {fileID: 0}
   guiSkin: {fileID: 11400000, guid: 67a0e45ce78656643983ff1187a05cdd, type: 2}
   showDebugInfo: 0
   parameters: []

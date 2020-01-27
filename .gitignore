@@ -8,3 +8,5 @@ Scripts/Tests/
 .vscode/
 
 *.pyc
+
+Simulations/

@@ -37,15 +37,6 @@ public class Gravity : Simulation {
         this.axis3 = Quaternion.AngleAxis(this.step, this.axis2) * this.axis3;
 
         this.Engine.SetGravity(this.axis3 * this.Parameters.Gravity * this.GravityScale);
-
-        #region Dealing with objects that left the World Box by teleporting them to the middle
-        Bounds worldBounds = new Bounds(Vector3.zero, Vector3.one * this.Parameters.WorldSideLength);
-        foreach (PhysicsBody body in this.Bodies) {
-            if (!worldBounds.Contains(body.Bounds.center)) {
-                body.SetPositionAndRotation(UnityEngine.Random.insideUnitSphere * this.Parameters.WorldSideLength * 0.5f, body.transform.rotation);
-            }
-        } 
-        #endregion
     }
 
     public override void OnGUI() {

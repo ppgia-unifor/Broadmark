@@ -19,10 +19,10 @@ public class SimulationParameters {
     public bool RecordMovie = false; // records per-frame screenshots
     
     [Header("Engine Parameters")]
-    public int SolverIterations = 32; // number of constraint solver iterations
-    public int VelocityIterations = 32; // number of velocity solver iterations (only PhysX)
+    public int SolverIterations = 6; // number of constraint solver iterations
+    public int VelocityIterations = 1; // number of velocity solver iterations (only PhysX)
     public float FixedTimestep = 1 / 30f; // timestep of one frame
-    public int SubSteps = 10; // number of substeps to compute for added quality
+    public int SubSteps = 4; // number of substeps to compute for added quality
 
     [Header("Objects Parameters")]
     public ObjectsType ObjectsType;
@@ -36,6 +36,10 @@ public class SimulationParameters {
     public float NormMaxInitialVelocity = 0.75f; // initial speed of objects,  relative to the WorldSideLength
     public float NormGravity = 0.0981f; // gravity force,  relative to the WorldSideLength
 
+    [Header("Simulation Specific Parameters")]
+    public bool FreeFall_PaintStaticObjects = false;
+    public bool FreeFall_ForceStaticObjectsToKinematic = false;
+    
 
     // Desired world volume, respecting the density parameter
     public float WorldVolume => this.ObjectsVolume / this.ObjectDensity;

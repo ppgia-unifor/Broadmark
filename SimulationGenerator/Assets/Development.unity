@@ -210,11 +210,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3400706524861782836, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: m_Name
-      value: Startup
-      objectReference: {fileID: 0}
     - target: {fileID: 3400706524861782794, guid: 21b3139b86b43b44dbc46b76157f2bb8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -270,110 +265,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
+    - target: {fileID: 3400706524861782836, guid: 21b3139b86b43b44dbc46b76157f2bb8,
         type: 3}
-      propertyPath: Simulations.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Ns.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: ObjectTypes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Simulations.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: ObjectTypes.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Frames
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Simulations.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Simulations.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Record
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Template.SolverIterations
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Ns.Array.data[0]
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Ns.Array.data[1]
-      value: 32000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Ns.Array.data[2]
-      value: 8000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Ns.Array.data[3]
-      value: 32000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Ns.Array.data[4]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Engine
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: RecordMovie
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: ObjectTypes.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: ObjectTypes.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Template.SubSteps
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400706524861782795, guid: 21b3139b86b43b44dbc46b76157f2bb8,
-        type: 3}
-      propertyPath: Template.VelocityIterations
-      value: 3
+      propertyPath: m_Name
+      value: Startup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21b3139b86b43b44dbc46b76157f2bb8, type: 3}

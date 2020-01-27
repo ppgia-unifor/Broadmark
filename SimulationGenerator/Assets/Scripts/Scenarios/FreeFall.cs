@@ -17,10 +17,12 @@ public class FreeFall : Simulation {
     public override void Start(SimulationParameters parameters) {
         base.Start(parameters);
 
-        this.defaultMaterial = this.Bodies[0].Renderer.material;
-        this.staticMaterial = new Material(this.defaultMaterial) {
-            color = new Color(0, 237 / 255f, 177 / 255f) / 4
-        };
+        if (this.Parameters.FreeFall_PaintStaticObjects) {
+            this.defaultMaterial = this.Bodies[0].Renderer.material;
+            this.staticMaterial = new Material(this.defaultMaterial) {
+                color = new Color(0, 237 / 255f, 177 / 255f) / 4
+            };
+        }
     }
 
     public override void Step(int frame) {
@@ -30,26 +32,20 @@ public class FreeFall : Simulation {
             return;
         }
 
-        foreach (PhysicsBody body in this.Bodies) {
-            body.Renderer.sharedMaterial = !body.GetSleepingState() ? this.defaultMaterial : this.staticMaterial;
-        }
-
-        if (frame > 140) {
-            foreach (PhysicsBody body in this.Bodies.Where(b => b.CanSleep() || b.GetSleepingState())) {
-                body.SetActivationState(false);
-                body.gameObject.isStatic = true;
+        if (this.Parameters.FreeFall_PaintStaticObjects) {
+            foreach (PhysicsBody body in this.Bodies) {
+                body.Renderer.sharedMaterial = !body.GetSleepingState() ? this.defaultMaterial : this.staticMaterial;
             }
         }
 
-        #region Dealing with objects that left the World Box by making them static
-        Bounds worldBounds = new Bounds(Vector3.zero, Vector3.one * this.Parameters.WorldSideLength);
-        foreach (PhysicsBody body in this.Bodies) {
-            if (!worldBounds.Contains(body.Bounds.center)) {
-                body.SetActivationState(false);
-                body.gameObject.isStatic = true;
+        if (this.Parameters.FreeFall_ForceStaticObjectsToKinematic) {
+            if (frame > 140) {
+                foreach (PhysicsBody body in this.Bodies.Where(b => b.CanSleep() || b.GetSleepingState())) {
+                    body.SetActivationState(false);
+                    body.gameObject.isStatic = true;
+                }
             }
         }
-        #endregion
     }
 
     public override void OnGUI() {

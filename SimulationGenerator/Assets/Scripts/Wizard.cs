@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -61,6 +62,14 @@ public class Wizard : MonoBehaviour {
         for (int i = 1; i < this.ObjectTypeToggles.Count; i++) {
             this.ObjectTypeToggles[i].isOn = false;
         }
+
+        char sep = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
+        this.Timestep.text = this.Timestep.text.Replace('.', sep);
+        this.Density.text = this.Density.text.Replace('.', sep);
+        this.Gravity.text = this.Gravity.text.Replace('.', sep);
+        this.Timestep.textComponent.text = this.Timestep.text;
+        this.Density.textComponent.text = this.Density.text;
+        this.Gravity.textComponent.text = this.Gravity.text;
     }
 
     public void ParseAndStart() {
