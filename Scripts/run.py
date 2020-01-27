@@ -5,9 +5,9 @@ from bm_run import generate_jsons, run_algorithms
 
 
 batch_run_name = "" # use this to name this testing session. If blank, a auto-generated timestamped name will be used
-broadmark_bin = "D:/Bitbucket/broadmark/Broadmark/bin64/Broadmark_Release_x64.exe"
-scenes_folder = "E:/Simulations/Recordings_AABBs/"
-output_folder = "D:/Bitbucket/broadmark/Scripts/Tests/"
+broadmark_bin = "../Broadmark/bin64/Broadmark_Release_x64.exe"
+scenes_folder = "../Simulations/Recordings_AABBs/"
+output_folder = "./Tests/"
 algorithms = ["KD", "CGAL", "GPU_Grid"]
 #algorithms = ["SAP", "SAP_AVX_Parallel", "DBVT F", "DBVT D", "Tracy", "Tracy_Parallel", "CGAL", "Grid_3D", "Grid_3D_SAP", "Grid_3D_Parallel", "Grid_3D_SAP_Parallel", "KD", "GPU_Grid", "GPU_LBVH", "GPU_SAP"]
 additionalProperty = ""

@@ -1,12 +1,10 @@
 
 Scripts/__pycache__/
-
 Scripts/cache/
-
 Scripts/Tests/
 
 .vscode/
-
 *.pyc
 
 Simulations/
+SimulationGenerator_Build/
