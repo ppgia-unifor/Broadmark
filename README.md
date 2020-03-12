@@ -85,12 +85,15 @@ A complete description of the Broadmark system can be found on the article [Broa
 To cite this work, please use the following bibtex entry:
 
 ```
-@inproceedings{serpa2019broadmark,
-  title={Broadmark: A Testing Framework for Broad-Phase Collision Detection Algorithms},
-  author={Serpa, Ygor Rebou{\c{c}}as and Rodrigues, Maria Andr{\'e}ia Formico},
-  booktitle={Computer Graphics Forum},
-  year={2019},
-  organization={Wiley Online Library}
+@article{Ygor_Broadmark,
+    author = {Serpa, Ygor R and Rodrigues, Maria Andr{\'e}ia F},
+    title = {Broadmark: A Testing Framework for Broad-Phase Collision Detection Algorithms},
+    journal = {Computer Graphics Forum ({CGF})},
+    volume = {39},
+    number = {1},
+    pages = {436--449},
+    publisher = {Wiley Online Library},
+    year = {2019},
 }
 ```
 
